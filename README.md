@@ -1,4 +1,4 @@
-# itmo.graphics.sem02
+# itmo.graphics
 Learning basic computer graphic
 ##
 [Task1](https://github.com/mrskycriper/itmo.graphics.sem02/tree/master/lab01)
