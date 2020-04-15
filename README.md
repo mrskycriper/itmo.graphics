@@ -1,6 +1,6 @@
 # itmo.graphics
-Learning basic computer graphic
-##
+*Learning basic computer graphic*
+***
 1. [x] 1. [Изучение простых преобразований изображений](https://github.com/mrskycriper/itmo.graphics.sem02/tree/master/lab01)
 2. [x] 2. [Изучение алгоритмов отрисовки растровых линий с
 применением сглаживания и гамма-коррекции](https://github.com/mrskycriper/itmo.graphics.sem02/tree/master/lab02)
