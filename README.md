@@ -1,4 +1,4 @@
-# itmo.graphics
+# itmo.graphics / C++
 *Learning basic computer graphic*
 ***
 1. [x] 1. [Изучение простых преобразований изображений](https://github.com/mrskycriper/itmo.graphics.sem02/tree/master/lab01)
