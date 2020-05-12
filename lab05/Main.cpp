@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 	std::string InputFileName = argv[1], OutputFileName = argv[2];
 	ConversionType Type;
 	int Offset;
-	double Multiple;
+	double Multiplier;
 
 	int tmp_type = std::stoi(argv[3]);
 	switch (tmp_type)
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 			return 1;
 		}
 		Offset = std::stoi(argv[4]);
-		Multiple = std::stod(argv[5]);
+		Multiplier = std::stod(argv[5]);
 	}
 
 	Picture NewPicture;
@@ -76,7 +76,7 @@ int main(int argc, char** argv)
 		NewPicture.Read(InputFileName);
 		if ((Type == RGB_MANUAL) || (Type == YCBCR601_MANUAL))
 		{
-			NewPicture.ManualConversion(Offset, Multiple);
+			NewPicture.ManualConversion(Offset, Multiplier);
 		}
 		else
 		{

@@ -127,13 +127,13 @@ void Picture::SetColorSpace(const ColorSpace& NewColorSpace) noexcept
 	color_space = NewColorSpace;
 }
 
-void Picture::ManualConversion(const int& Offset, const double& Multiple) noexcept
+void Picture::ManualConversion(const int& Offset, const double& Multiplier) noexcept
 {
 	if (!color)
 	{
 		for (int i = 0; i < width * height; ++i)
 		{
-			int result = static_cast <int> ((data[i].first_subpixel - Offset) * Multiple);
+			int result = static_cast <int> ((data[i].first_subpixel - Offset) * Multiplier);
 			if (result > 255)
 			{
 				result = 255;
@@ -151,7 +151,7 @@ void Picture::ManualConversion(const int& Offset, const double& Multiple) noexce
 	{
 		for (int i = 0; i < width * height; ++i)
 		{
-			int result = static_cast <int> ((data[i].first_subpixel - Offset) * Multiple);
+			int result = static_cast <int> ((data[i].first_subpixel - Offset) * Multiplier);
 			if (result > 255)
 			{
 				result = 255;
@@ -162,7 +162,7 @@ void Picture::ManualConversion(const int& Offset, const double& Multiple) noexce
 			}
 			data[i].first_subpixel = result;
 
-			result = static_cast <int> ((data[i].second_subpixel - Offset) * Multiple);
+			result = static_cast <int> ((data[i].second_subpixel - Offset) * Multiplier);
 			if (result > 255)
 			{
 				result = 255;
@@ -173,7 +173,7 @@ void Picture::ManualConversion(const int& Offset, const double& Multiple) noexce
 			}
 			data[i].second_subpixel = result;
 
-			result = static_cast <int> ((data[i].third_subpixel - Offset) * Multiple);
+			result = static_cast <int> ((data[i].third_subpixel - Offset) * Multiplier);
 			if (result > 255)
 			{
 				result = 255;
@@ -189,7 +189,7 @@ void Picture::ManualConversion(const int& Offset, const double& Multiple) noexce
 	{
 		for (int i = 0; i < width * height; ++i)
 		{
-			int result = static_cast <int> ((data[i].first_subpixel - Offset) * Multiple);
+			int result = static_cast <int> ((data[i].first_subpixel - Offset) * Multiplier);
 			if (result > 255)
 			{
 				result = 255;
@@ -210,17 +210,17 @@ void Picture::AutoConversion(const ConversionType& Type) noexcept
 	buffer = cut_dark_and_bright(Type == RGB_AUTO || Type == YCBCR601_AUTO);
 
 	int offset = buffer.second;
-	double multiple = 255.0 / static_cast <double> (buffer.first - buffer.second);
-	if (multiple < 0.0039) // 1/255 ~ 0.0039
+	double multiplier = 255.0 / static_cast <double> (buffer.first - buffer.second);
+	if (multiplier < 0.0039) // 1/255 ~ 0.0039
 	{
-		multiple = 0.0039;
+		multiplier = 0.0039;
 	}
-	if (multiple > 255)
+	if (multiplier > 255)
 	{
-		multiple = 255;
+		multiplier = 255;
 	}
-	std::cout << '<' << offset << '>' << ' ' << '<' << multiple << '>' << std::endl;
-	ManualConversion(offset, multiple);
+	std::cout << '<' << offset << '>' << ' ' << '<' << multiplier << '>' << std::endl;
+	ManualConversion(offset, multiplier);
 }
 
 std::pair <int, int> Picture::cut_dark_and_bright(const bool& avoid_cut) noexcept
