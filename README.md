@@ -6,5 +6,5 @@
 3. [x] 3. [Image dithering](https://github.com/mrskycriper/itmo.graphics.sem02/tree/master/lab03)
 4. [x] 4. [Color spaces](https://github.com/mrskycriper/itmo.graphics/tree/master/lab04)
 5. [x] 5. [Auto brightness](https://github.com/mrskycriper/itmo.graphics/tree/master/lab05)
-6. [ ] 6. ~
-7. [ ] 7. ~
+6. [ ] 6. [Image scaling](#)
+7. [ ] 7. [Image sharpening](#)
